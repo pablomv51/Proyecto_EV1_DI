@@ -1,0 +1,96 @@
+
+* {
+    background-color: var(--clr-main);
+}
+
+body {
+    background-color: var(--clr-main);
+    display: flex;
+    height: 100vh;
+}
+
+.contenedor {
+    display: flex; /* lo que haya dentro lo pone en fila (casi todo)*/
+    width: 100%;
+}
+
+main {
+    flex: 3; /* al poner 3, nos ocupa 3 cuartos de la pantalla */
+    background-color: var(--clr-white);
+    border-radius: 2rem; /*bordes redondeados */
+    padding: 2rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    margin: 1rem; /*margen alredor*/
+}
+
+.titulo-principal {
+    font-size: 1.5rem;
+    color: var(--clr-main);
+    background-color: var(--clr-white);
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.aside-visible {
+    flex: 1;
+    background-color: var(--clr-main);
+    color: var(--clr-white);
+    display: flex;
+    flex-direction: column; /* lo ordenamos por columnas*/
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.aside-visible .logo {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold; /*negrita*/
+    margin-bottom: 1rem;
+    cursor: pointer; /*que cuando te pongas encima aparezca el símbolo de clicar*/
+}
+
+.boton-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    color: var(--clr-white);
+    background-color: var(--clr-main);
+    border: none; /*ningún borde*/
+    border-radius: 0.5rem;
+    padding: 1rem;
+    cursor: pointer;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+
+.boton-menu.active { /*aquí estoy poniendo dos clases distintas, ya que en el main los botones tienen varias clases distintas*/
+    background-color: var(--clr-white);
+    font-weight: bold;
+    color: var(--clr-main);
+}
+.boton-menu.boton-carrito {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;/* lo utilizo para alinear el contenido a la izquierda de todo*/
+}
+
+.boton-carrito .numerito {
+    background-color: var(--clr-main);
+    color: var(--clr-white);
+    font-weight: bold;
+    border-radius: 0.5rem;
+    padding: 0.25rem 0.25rem;
+    text-align: center;
+}
+
+.texto-footer {
+    text-align: left;
+    font-size: 0.75rem;
+    color: var(--clr-main-light);
+}
+
+h1 {
+    display: none; /*de momento esto lo oculto ya que se necesita cuando es más pequeño*/
+}

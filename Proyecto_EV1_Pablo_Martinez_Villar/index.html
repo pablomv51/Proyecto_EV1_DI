@@ -6,6 +6,7 @@
   <title>CarbaShop</title>
   <link rel="stylesheet" type="text/css" href="./css/comun.css" />
   <link rel="stylesheet" type="text/css" href="./css/index.css" />
+  <script type="text/javascript" src=javascript/script.js></script>
   <!--Adjuntar aquí el resto de archivos css y js-->
 </head>
 
@@ -13,14 +14,14 @@
   <div class="container">
     <div class="caja_login">
     <h2>Login</h2>
-    <form name="formulario" id="formulario">
+    <form name="formulario" id="formulario" action="main.html" method="get">
       <input type="text" name="nombre" id="nombre" placeholder="Login"/>
       <div id="error-nombre" class="error-message"></div>
     
       <input type="password" name="password" id="password" placeholder="Contraseña"/>
       <div id="error-password" class="error-message"></div>
       <div id="botones">
-          <input type="submit" id="submit" name="enviar" value="Entrar a CarbaShop" />
+          <input type="submit" id="submit" name="enviar" value="Entrar a CarbaShop"/>
           <input type="button" id="limpiar" name="limpiar" value="Limpiar Datos" />
       </div>
     </form>

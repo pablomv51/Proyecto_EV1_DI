@@ -8,6 +8,7 @@
     --clr-gray: #e2e2e2;
     --clr-green: #316b0a;
     --clr-red: #961818;
+    --clr-red-error: #ff0000; /*este color es para los mensajes de error*/
     --clr-white-inputs: #FFFFFF; /*este color es para los input text y password del index*/
 }
 

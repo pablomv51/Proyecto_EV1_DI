@@ -1,5 +1,5 @@
 /*estilos del index*/
-
+/*referencia rem ---> 16px = 1rem*/
 
 *{
     background-color: var(--clr-main);
@@ -23,20 +23,21 @@ body {
 }
 .caja_login{
     background-color: var(--clr-white);
-    padding: 5%;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
-    width: 90%; /* adaptamos a cualquier ancho de pantalla*/
-    max-width: 30%; /*ancho máximo*/
+    padding: 3rem;
+    border-radius: 0.625rem;
+    box-shadow: 0 0.25rem 0.375rem rgba(0, 0, 0, 0.5);;
+    width: 40rem; /* adaptamos a cualquier ancho de pantalla*/
+    max-width: 45rem; /*ancho máximo*/
     text-align: center;
+    height: 30rem;
 }
 
 /*titulo (login)*/
 
 h2{
-    color: (var(--clr-main));
-    margin-bottom: 5%; /*espaciado con los input/formulario*/
-    font-size: 24px;
+    color: var(--clr-main);
+    margin-bottom: 1rem; /*espaciado con los input/formulario*/
+    font-size: 2rem;
     background-color: var(--clr-white);
 }
 
@@ -47,28 +48,44 @@ h2{
 /*aqui voy a poner los input text y password con el mismo estilo, porque es el mismo realmente*/
 
 form input[type="text"], form input[type="password"]{
-    width: 90%;
-    padding: 3%; 
-    margin-bottom: 5%; /*espacio entre los dos input*/
-    border: 1px solid var(--clr-gray);
-    border-radius: 5px;
-    font-size: 16px;
+    width: 35rem;
+    padding: 0.75rem; 
+    margin-bottom: 1em; /*espacio entre los dos input*/
+    border: 0.065rem solid var(--clr-gray);
+    border-radius: 0.625rem;
+    font-size: 1rem;
     background-color: var(--clr-white-inputs);
+    height: 3.5rem;
 }
 
 /*botones de entrar y limpiar*/
 
 #botones input{
-    width: 90%;
-    padding: 3%; 
-    margin-bottom: 5%;
-    font-size: 16px;
-    border: 1px solid var(--clr-white);
-    border-radius: 10px; /*aqui le ponemos un border radius mayor porque si nos fijamos las esquinas hacen mas arco que en los campos a rellenar*/
+    width: 35rem;
+    padding: 1rem; 
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    border: 0.065rem solid var(--clr-white);
+    border-radius: 0.625rem; /*aqui le ponemos un border radius mayor porque si nos fijamos las esquinas hacen mas arco que en los campos a rellenar*/
     background-color: var(--clr-main);
     color: var(--clr-white-inputs);
 }
 
+#botones input:hover{
+    background-color: var(--clr-main-light);
+}
+
 #botones{
     background-color: var(--clr-white-main);
+    margin-top: 1.5rem;
 }
+
+/*estilo de los mensajes de error*/
+
+.error-message {
+    color: var(--clr-red-error); /*pongo este color porque viendo en el pdf como tiene que quedar el color de los errores, el color que teníamos referenciado en comun.css era mucho más apagado y no se asemejaba a lo que queremos*/
+    display: none;
+    margin-bottom: 0.625rem;
+    background-color: var(--clr-white);
+    text-align: left;
+  }
