@@ -21,6 +21,8 @@ main {
     padding: 2rem;
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
     margin: 1rem; /*margen alredor*/
+    overflow: auto;
+    scrollbar-width: none; /*para que no aparezca la barra de scroll*/
 }
 
 .titulo-principal {
@@ -28,7 +30,8 @@ main {
     color: var(--clr-main);
     background-color: var(--clr-white);
     font-weight: bold;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
+    padding: 0;
 }
 
 .aside-visible {
@@ -83,6 +86,14 @@ main {
     border-radius: 0.5rem;
     padding: 0.25rem 0.25rem;
     text-align: center;
+    margin-left: 1rem;
+}
+
+.bi{
+    color: var(--clr-main);
+    background-color: var(--clr-white);
+    margin-left: 0;
+    margin-right: 1rem;
 }
 
 .texto-footer {
@@ -91,6 +102,63 @@ main {
     color: var(--clr-main-light);
 }
 
-h1 {
+#uno{
     display: none; /*de momento esto lo oculto ya que se necesita cuando es más pequeño*/
 }
+
+
+/*productos*/
+.contenedor-productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    gap:1rem; /*espacio entre productos*/
+    background-color: var(--clr-white);
+}
+.producto {
+    background-color: var(--clr-white);
+    border-radius: 1rem; 
+    padding: 0rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 0;
+}
+.producto-imagen {
+    width: 100%;
+    max-width: 12rem;
+    border-radius: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.producto-detalles{
+    border-radius: 1rem; 
+    padding: 0.5rem;
+}
+
+
+.producto-titulo {
+    font-size: 1.25rem;
+    font-weight: bold; /*negrita*/
+    color: var(--clr-white);
+    margin-bottom: 0.5rem;
+    text-align: left;
+}
+
+.producto-precio {
+    font-size: 1rem;
+    color: var(--clr-white);
+    text-align: left;
+    margin-bottom: 0.25rem;
+}
+
+.producto-agregar {
+    background-color: var(--clr-white);
+    color: var(--clr-main);
+    padding: 0.5rem 5rem;
+    border-radius: 1rem;
+    font-size: 1rem;
+    border: 0;
+    cursor: pointer; /*que cuando te pongas encima aparezca el símbolo de clicar*/
+}
+
