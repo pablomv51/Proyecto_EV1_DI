@@ -1,0 +1,137 @@
+* {
+    background-color: var(--clr-main);
+}
+
+body {
+    background-color: var(--clr-main);
+    display: flex;
+    height: 100vh;
+}
+
+.contenedor {
+    display: flex;
+    width: 100%;
+}
+
+main {
+    flex: 3;
+    background-color: var(--clr-white);
+    border-radius: 2rem; /*bordes redondeados */
+    padding: 2rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    margin: 1rem; /*margen alredor*/
+    overflow: auto; /*si el contenido es más grande que el contenedor muestra barras de desplazamiento para hacer scroll*/
+    scrollbar-width: none; /*para que no aparezca la barra de scroll*/
+}
+
+
+#uno{
+    display: none; /*de momento esto lo oculto ya que se necesita cuando es más pequeño*/
+}
+
+/*el botón de abrir menu y cerrarlo de momento los ocultamos*/
+#open-menu{
+    display: none;
+}
+#close-menu{
+    display: none;
+}
+
+.titulo-principal {
+    font-size: 1.5rem;
+    color: var(--clr-main);
+    background-color: var(--clr-white);
+    font-weight: bold;
+    margin-bottom: 2rem;
+    margin-left: 0;
+    padding: 0;
+}
+
+.aside-visible {
+    flex: 1;
+    background-color: var(--clr-main);
+    color: var(--clr-white);
+    display: flex;
+    flex-direction: column; /* lo ordenamos por columnas*/
+    justify-content: space-between;
+    padding: 1rem;
+    height: 100%;
+}
+
+#carrito-vacio{
+    background-color: var(--clr-white);
+    color: var(--clr-main);
+}
+
+#carrito-comprado{
+display: none;
+}
+.bi-emoji-frown{
+    background-color: var(--clr-white);
+}
+
+.texto-footer {
+    text-align: left;
+    font-size: 0.75rem;
+    color: var(--clr-main-light);
+    margin-bottom: 1rem;
+}
+
+.aside-visible .logo {
+    text-align: center;
+    height: 100%;
+    font-size: 1.5rem;
+    font-weight: bold; /*negrita*/
+    margin-bottom: 1rem;
+    cursor: pointer; /*que cuando te pongas encima aparezca el símbolo de clicar*/
+    margin-top: 2rem;
+}
+
+.boton-menu {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 1rem;
+    color: var(--clr-white);
+    background-color: var(--clr-main);
+    border: none;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    cursor: pointer;
+    margin-bottom: 2rem;
+    text-align: center;
+    width: 90%;
+    font-weight: bold;
+}
+
+.boton-menu.active {
+    background-color: var(--clr-white);
+    color: var(--clr-main);
+}
+
+.boton-menu.boton-carrito {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0.80rem;
+    width: 90%;
+}
+
+.boton-carrito .numerito {
+    background-color: var(--clr-main);
+    color: var(--clr-white);
+    font-weight: bold;
+    border-radius: 0.5rem;
+    padding: 0.25rem 0.25rem;
+    text-align: center;
+    margin-left: 1rem;
+}
+
+.boton-menu.active i {
+    background-color: var(--clr-white);
+    color: var(--clr-main); /*cambiamos el color del ícono a verde en la categoría que esté activa*/
+}
+
+.boton-menu i{
+    margin-right: 1rem;
+}
