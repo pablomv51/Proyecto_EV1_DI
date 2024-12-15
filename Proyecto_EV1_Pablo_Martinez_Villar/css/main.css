@@ -18,7 +18,6 @@ main {
     background-color: var(--clr-white);
     border-radius: 2rem; /*bordes redondeados */
     padding: 2rem;
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
     margin: 1rem; /*margen alredor*/
     overflow: auto;/*si el contenido es más grande que el contenedor muestra barras de desplazamiento para hacer scroll*/
     scrollbar-width: none; /*para que no aparezca la barra de scroll*/
@@ -49,7 +48,7 @@ main {
     text-align: center;
     height: 100%;
     font-size: 1.5rem;
-    font-weight: bold; /*negrita*/
+    font-weight: normal;
     margin-bottom: 1rem;
     cursor: pointer; /*que cuando te pongas encima aparezca el símbolo de clicar*/
 }
@@ -191,4 +190,199 @@ h1{
     font-size: 1rem;
     border: 0;
     cursor: pointer; /*que cuando te pongas encima aparezca el símbolo de clicar*/
+}
+
+/*estilos adaptables*/
+
+@media (max-width: 850px){/*850px*/
+    .contenedor-productos {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.5rem;
+    }
+
+    .producto-imagen {
+        max-width: 8rem;/*bajamos el tamaño de las imagenes*/
+    }
+    .producto-detalles {
+        margin-top: -1rem;
+    }
+
+    .producto-titulo {
+        font-size: 1rem;
+    }
+
+    .producto-precio {
+        font-size: 0.9rem;
+    }
+
+    .producto-agregar {
+        padding: 0.5rem 1.8rem; /*botón mas pequeño*/
+        font-size: 0.9rem;
+    }
+
+    .titulo-principal {
+       margin-left:1.4rem;
+    }
+}
+
+@media (max-width: 675px){/*675px*/
+    .contenedor-productos {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+    }
+    .producto-imagen {
+        max-width: 10rem;/*bajamos el tamaño de las imagenes*/
+    }
+    .producto-detalles {
+        margin-top: -1.2rem;
+    }
+
+    .producto-titulo {
+        font-size: 1rem;
+    }
+
+    .producto-precio {
+        font-size: 0.9rem;
+    }
+
+    .producto-agregar {
+        padding: 0.5rem 2.5rem; /*botón mas pequeño*/
+        font-size: 0.9rem;
+    }
+
+    .titulo-principal {
+       margin-left:1.4rem;
+    }
+
+    .boton-carrito .numerito {
+        margin-left: 0.6rem;
+    }
+}
+
+
+@media (max-width: 600px){/*600px*/
+    .contenedor {
+        flex-direction: column; /*columna*/
+    }
+
+    .contenedor-productos {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+    }
+
+    .producto-imagen {
+        max-width: 13rem;
+    }
+
+
+    .aside-visible {
+        display: none; /*ocultamos el menu lateral*/
+    }
+
+    .producto-detalles {
+        margin-top: -1.4rem;
+    }
+
+    .producto-agregar {
+        padding: 0.5rem 4rem;
+        font-size: 0.9rem;
+    }
+
+    .bi-list{
+        font-size: 2rem;
+    }
+
+
+    /*mostrar botón de abrir o cerrar el menu*/
+    #open-menu {
+        display: block; /*botón*/
+        background-color: var(--clr-main);
+        color: var(--clr-white);
+        font-size: 1.5rem;
+        border: none;
+        cursor: pointer;
+        margin-top: 2.5rem;
+        margin-right: 0.5rem;
+        margin-left: auto; /*lo estamos colocando a la derecha con esto*/
+    }
+
+    #close-menu {
+        display: block; /*botón de cerrar*/
+        font-size: 1.5rem;
+        background-color: transparent;
+        color: var(--clr-white);
+        border: none;
+        cursor: pointer;
+    }
+
+    .titulo-principal {
+        margin-left: 1rem;
+    }
+
+    #uno{
+        display: block;
+        margin-top: 2.5rem;
+    }
+
+    .header-mobile {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem 1rem;
+        background-color: var(--clr-main);
+        color: var(--clr-white);
+    }
+
+
+    .header-mobile .logo {
+        font-size: 1.3rem;
+        font-weight: normal;
+        color: var(--clr-white);
+    }
+
+    h1{
+        margin-top: -6rem;
+    }
+
+    .close-menu{
+        margin-left: 12rem;
+    }
+
+    .menu {
+        margin-bottom: 7rem;
+    }
+
+    .texto-footer {
+        text-align: center;
+    }
+
+}
+
+@media (max-width: 400px){ /*400px*/
+    .contenedor-productos {
+        grid-template-columns: 1fr;  
+    }
+    .producto-imagen {
+        max-width: 18rem;
+    }
+
+    .producto-agregar {
+        padding: 0.5rem 6.3rem;
+        font-size: 0.9rem;
+    }
+
+    .producto-detalles {
+        margin-top: -1.6rem;
+    }
+
+    .producto {
+        margin-bottom: 0.5rem;
+    }
+
+    .titulo-principal {
+        margin-left: 0.7rem;
+    }
+    .texto-footer {
+        text-align: center;
+    }
 }

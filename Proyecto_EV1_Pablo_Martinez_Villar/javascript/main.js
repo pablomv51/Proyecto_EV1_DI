@@ -4,6 +4,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const botones = document.querySelectorAll(".boton-categoria");
     const numerito = document.getElementById("numerito");
     const logoInicio = document.getElementById("inicio");//este lo necesito para que no se guarden los elementos del carrito cuando vuelvo al login
+    const abrirMenu = document.getElementById("open-menu");
+    const cerrarMenu = document.getElementById("close-menu");
+    const aside = document.querySelector(".aside-visible"); 
 
     let carrito = JSON.parse(localStorage.getItem("carrito")) || []; /*esta declaración de carrito hace que recupere los datos del localstorage, que va a estar en formato JSON gracias al parse*/
     let productos = [];
@@ -119,7 +122,6 @@ contenedor.addEventListener("click", (e) => {
     }
 });
 
-
 //evento para borrar el carrito antes de movernos al login
 logoInicio.addEventListener("click", (e) => {
     e.preventDefault(); //evitamos redirección inmediata para que de tiempo a borrarse
@@ -129,6 +131,19 @@ logoInicio.addEventListener("click", (e) => {
 
         //redirigimos manualmente sin hacer caso al "a"
         window.location.href = "index.html";
+});
+
+//evento para abrir el menú
+abrirMenu.addEventListener("click", () => {
+    aside.style.display = "flex"; //mostramos el menu
+    aside.style.position = "absolute";
+    aside.style.width = "15rem";
+    aside.style.backgroundColor = "var(--clr-main)";
+});
+
+//evento para cerrar el menú
+cerrarMenu.addEventListener("click", () => {
+    aside.style.display = "none"; //ocultamos
 });
 
 //actualiza el contador del carrito al cargar la página

@@ -65,7 +65,9 @@ main {
 
 #carrito-comprado{
 display: none;
+margin-top: -2rem;
 }
+
 .bi-emoji-frown{
     background-color: var(--clr-white);
 }
@@ -84,7 +86,7 @@ display: none;
     text-align: center;
     height: 100%;
     font-size: 1.5rem;
-    font-weight: bold; /*negrita*/
+    font-weight: normal;
     margin-bottom: 1rem;
     cursor: pointer; /*que cuando te pongas encima aparezca el símbolo de clicar*/
     margin-top: 2rem;
@@ -212,7 +214,7 @@ small{
 }
 
 .elimina{
-    color: var(--clr-red-error);
+    color: var(--clr-red);
     background-color: var(--clr-gray);
 }
 
@@ -298,4 +300,108 @@ color: var(--clr-main);
 
 #inicio{
     color: var(--clr-white);
+}
+
+@media (max-width: 800px){/*Como no en el PDF no se ha adjuntado la medida en la que se tiene que adaptar la pantlla carrito y sólo se adjunta un estilo a realizar, he escogido diseñarla para pantallas de 800px*/
+    .aside-visible {
+        display: none; /*ocultamos el menu lateral*/
+    }
+
+    .aside-visible h1 {
+        position: relative; /*ajusto con position porque es más sencillo que usar otras medidas de margin en el título*/
+        top: -11rem;
+    }
+
+    .contenedor {
+        flex-direction: column; /*columna*/
+    }
+
+    /*mostrar botón de abrir o cerrar el menu*/
+    #open-menu {
+        display: block; /*botón*/
+        background-color: var(--clr-main);
+        color: var(--clr-white);
+        font-size: 1.5rem;
+        border: none;
+        cursor: pointer;
+        margin-top: 1rem;
+        margin-right: 0.5rem;
+        margin-left: auto; /*lo estamos colocando a la derecha con esto*/
+    }
+
+    #close-menu {
+        display: block; /*botón de cerrar*/
+        font-size: 1.5rem;
+        background-color: transparent;
+        color: var(--clr-white);
+        border: none;
+        cursor: pointer;
+    }
+
+    #uno{
+        display: block;
+        margin-top: 2.5rem;
+    }
+
+    .header-mobile {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem 1rem;
+        background-color: var(--clr-main);
+        color: var(--clr-white);
+    }
+
+
+    .header-mobile .logo {
+        font-size: 1.3rem;
+        font-weight: normal;
+        color: var(--clr-white);
+    }
+
+    .carrito-producto-imagen{
+        margin-left: -1.5rem;
+    }
+
+    .carrito-producto-eliminar{
+        margin-right: -1rem;
+    }
+    
+    .bi-list{
+        font-size: 2rem;
+    }
+
+    h3{
+        font-size: 1.20rem;
+    }
+
+    .carrito-producto-subtotal{
+        display: none;
+    }
+
+    .info{
+        font-size: 1.10rem;
+    }
+
+    .carrito-producto-titulo h3 {
+        word-wrap: break-word; /*permitimos cortar palabras*/
+        max-width: 6rem; /*ponemos un ancho máximo para que quede como en la imagen y la palabra ocupe dos líneas*/
+        line-height: 1.2rem; /*altura entre lineas para que sea bien legible*/
+    }
+
+    .close-menu{
+        margin-left: 12rem;
+    }
+
+    .menu {
+        margin-bottom: 9rem;
+    }
+
+    .boton-menu{
+        font-size: 0.8rem;
+    }
+
+    .texto-footer {
+        text-align: center;
+    }
 }

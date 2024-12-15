@@ -7,8 +7,24 @@ document.addEventListener("DOMContentLoaded", () => {
     const botonVaciar = document.querySelector(".carrito-acciones-vaciar");
     const botonComprar = document.querySelector(".carrito-acciones-comprar");
     const logoInicio = document.getElementById("inicio"); //este lo necesito para que no se guarden los elementos del carrito cuando vuelvo al login
+    const abrirMenu = document.getElementById("open-menu");
+    const cerrarMenu = document.getElementById("close-menu");
+    const aside = document.querySelector(".aside-visible"); 
 
     let carrito = JSON.parse(localStorage.getItem("carrito")) || [];/*esta declaración de carrito hace que recupere los datos del localstorage, que va a estar en formato JSON gracias al parse*/
+
+     //evento para abrir el menú
+    abrirMenu.addEventListener("click", () => {
+        aside.style.display = "flex"; //mostramos el menu
+        aside.style.position = "absolute";
+        aside.style.width = "15rem";
+        aside.style.backgroundColor = "var(--clr-main)";
+    });
+
+    //evento para cerrar el menú
+    cerrarMenu.addEventListener("click", () => {
+        aside.style.display = "none"; //ocultamos
+    });
 
     //mostramos productos en el carrito(le iba a poner mostrarProductos pero ya hay una función así en el main.js y así evito redundancia)
     const mostrarCarrito = () => {
@@ -151,7 +167,6 @@ document.addEventListener("DOMContentLoaded", () => {
             //redirigimos manualmente sin hacer caso al "a"
             window.location.href = "index.html";
     });
-
 
     //actualiza el contador del carrito
     const actualizarContadorCarrito = () => {
