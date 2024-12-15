@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const titulo = document.getElementById("titulo-principal");
     const botones = document.querySelectorAll(".boton-categoria");
     const numerito = document.getElementById("numerito");
+    const logoInicio = document.getElementById("inicio");//este lo necesito para que no se guarden los elementos del carrito cuando vuelvo al login
 
     let carrito = JSON.parse(localStorage.getItem("carrito")) || []; /*esta declaración de carrito hace que recupere los datos del localstorage, que va a estar en formato JSON gracias al parse*/
     let productos = [];
@@ -116,6 +117,18 @@ contenedor.addEventListener("click", (e) => {
 
         agregarAlCarrito(producto); //añadimos el producto al carrito llamando a la función de antes
     }
+});
+
+
+//evento para borrar el carrito antes de movernos al login
+logoInicio.addEventListener("click", (e) => {
+    e.preventDefault(); //evitamos redirección inmediata para que de tiempo a borrarse
+   
+        carrito = [];//vaciamos carrito
+        localStorage.removeItem("carrito"); //eliminamos el carrito del localstorage
+
+        //redirigimos manualmente sin hacer caso al "a"
+        window.location.href = "index.html";
 });
 
 //actualiza el contador del carrito al cargar la página

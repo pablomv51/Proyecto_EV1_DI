@@ -4,9 +4,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const carritoVacio = document.getElementById("carrito-vacio");
     const carritoComprado = document.getElementById("carrito-comprado");
     const carritoAcciones = document.getElementById("carrito-acciones");
-    const vaciar = document.querySelector(".carrito-acciones-vaciar");
-    const comprar = document.querySelector(".carrito-acciones-comprar");
-
+    const botonVaciar = document.querySelector(".carrito-acciones-vaciar");
+    const botonComprar = document.querySelector(".carrito-acciones-comprar");
+    const logoInicio = document.getElementById("inicio"); //este lo necesito para que no se guarden los elementos del carrito cuando vuelvo al login
 
     let carrito = JSON.parse(localStorage.getItem("carrito")) || [];/*esta declaración de carrito hace que recupere los datos del localstorage, que va a estar en formato JSON gracias al parse*/
 
@@ -18,6 +18,8 @@ document.addEventListener("DOMContentLoaded", () => {
             carritoVacio.style.display = "block"; //mostramos el mensaje de carrito vacío
             carritoComprado.style.display = "none";//ocultamos el mensaje de compra completada
             carritoAcciones.style.display = "none";
+
+            
         } else {
             carritoVacio.style.display = "none";
             carritoComprado.style.display = "none"; ////ocultamos el mensaje de compra completada
@@ -35,18 +37,21 @@ document.addEventListener("DOMContentLoaded", () => {
                     </div>
                     <div class="carrito-producto-cantidad">
                         <small>Cantidad</small>
-                        <p>${producto.cantidad}</p>
+                        <p class="info">${producto.cantidad}</p>
                     </div>
                     <div class="carrito-producto-precio">
                         <small>Precio</small>
-                        <p>$${producto.precio}</p>
+                        <p class="info">$${producto.precio}</p>
                     </div>
                     <div class="carrito-producto-subtotal">
                         <small>Subtotal</small>
-                        <p>$${producto.precio * producto.cantidad}</p>
+                        <p class="info">$${producto.precio * producto.cantidad}</p>
                     </div>
+                     <button class="carrito-producto-comprar" data-id="${producto.id}">
+                        <p class="comprar">Comprar</p>
+                    </button>
                     <button class="carrito-producto-eliminar" data-id="${producto.id}">
-                        <i class="bi bi-trash-fill"></i>
+                        <p class="elimina">Eliminar</p>
                     </button>
                 `;
                 productosCarrito.appendChild(div); //añadimos el producto al contenedor
@@ -62,11 +67,32 @@ document.addEventListener("DOMContentLoaded", () => {
         totalCarrito.textContent = `$${total}`; //mostramos el total
     };
 
+    //compramos un producto
+    const comprarProducto = (id) => {
+        carrito = carrito.filter(producto => producto.id !== id); //eliminamos el producto por id
+        localStorage.setItem("carrito", JSON.stringify(carrito)); //guardamos
+        mostrarCarrito(); //actualizamos
+        actualizarContadorCarrito();
+    };
+
+    //evento para comprar
+    productosCarrito.addEventListener("click", (e) => {
+        if (e.target.classList.contains("carrito-producto-comprar") || e.target.closest(".carrito-producto-comprar")) {
+            const id = e.target.closest(".carrito-producto-comprar").dataset.id; //esto es para obtener el id del producto
+
+                const confirmacion = confirm(`¿Quieres comprar el producto?`); //mensaje de confirmación
+
+                if (confirmacion) { //si confirmamos
+                    comprarProducto(id);
+                }
+        }
+    });
+
     //eliminamos un producto
     const eliminarProducto = (id) => {
         carrito = carrito.filter(producto => producto.id !== id); //eliminamos el producto por id
         localStorage.setItem("carrito", JSON.stringify(carrito)); //guardamos
-        mostrarCarrito();
+        mostrarCarrito();//actualizamos
         actualizarContadorCarrito();
     };
 
@@ -74,28 +100,58 @@ document.addEventListener("DOMContentLoaded", () => {
     productosCarrito.addEventListener("click", (e) => {
         if (e.target.classList.contains("carrito-producto-eliminar") || e.target.closest(".carrito-producto-eliminar")) {
             const id = e.target.closest(".carrito-producto-eliminar").dataset.id; //esto es para obtener el id del producto
+            
+            const confirmacion = confirm("¿Quieres eliminar el producto?");//mensaje de confirmación
+            
+            if (confirmacion) { //si confirmamos
             eliminarProducto(id);
+            }
         }
+
     });
 
     //evento para vaciar el carrito del todo
-    vaciar.addEventListener("click", () => {
+    botonVaciar.addEventListener("click", () => {
+        const confirmacion = confirm("¿Estás seguro que quieres eliminar todos los productos del carrito?");//mensaje de confirmación
+        
+        if (confirmacion) { //si confirmamos
         carrito = []; //vaciamos el carrito
         localStorage.setItem("carrito", JSON.stringify(carrito)); //actualiza
+        
         mostrarCarrito();
         actualizarContadorCarrito();
+        }
     });
 
-    //evento para comprar
-    comprar.addEventListener("click", () => {
+    //evento para comprar todo el carrito
+    botonComprar.addEventListener("click", () => {
+        const total = carrito.reduce((acumulador, producto) => acumulador + producto.precio * producto.cantidad, 0); //calculamos el total para mostrarlo en el mensaje de alerta
+        
+        const confirmacion = confirm(`¿Estás seguro que quieres comprar todos los productos por un total de $${total}?`);//mensaje de confirmación
+        if (confirmacion) { //si le damos a confirmar
         carrito = []; //vaciamos el carrito después de haber realizado la compra
         localStorage.setItem("carrito", JSON.stringify(carrito)); //actualiza
+
+        mostrarCarrito(); //refrescamos el carrito
         carritoVacio.style.display = "none";
         carritoComprado.style.display = "block"; //mostramos el mensaje de compra completada
         carritoAcciones.style.display = "none";
         actualizarContadorCarrito();
-        
+        }
     });
+
+ 
+    //evento para borrar el carrito antes de movernos al login
+    logoInicio.addEventListener("click", (e) => {
+        e.preventDefault(); //evitamos redirección inmediata para que de tiempo a borrarse
+       
+            carrito = [];//vaciamos carrito
+            localStorage.removeItem("carrito"); //eliminamos el carrito del localstorage
+
+            //redirigimos manualmente sin hacer caso al "a"
+            window.location.href = "index.html";
+    });
+
 
     //actualiza el contador del carrito
     const actualizarContadorCarrito = () => {

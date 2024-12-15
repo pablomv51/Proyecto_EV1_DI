@@ -23,7 +23,7 @@
             <h2 class="titulo-principal">Carrito</h2>
             <div class="contenedor-carrito">
                 <p id="carrito-vacio" class="carrito-vacio">Tu carrito está vacío. <i class="bi bi-emoji-frown"></i></p>
-                <div id="carrito-productos" class="carrito-productos">
+                <div id="carrito-productos" class="carrito-productos carrito-con-productos">
                     <!--
                     <div class="carrito-producto">
                         <img class="carrito-producto-imagen" src="./img/portatil/01.jpg" alt="Imagen producto">
@@ -45,21 +45,18 @@
                         </div>
                         <button class="carrito-producto-eliminar"><i class="bi bi-trash-fill"></i></button>
                     </div>
--->
-                    <div id="carrito-acciones" class="carrito-acciones">
-                        <div class="carrito-acciones-izquierda">
-                            <button class="carrito-acciones-vaciar">Vaciar carrito</button>
-                        </div>
-
-                        <div class="carrito-acciones-derecha">
-                            <div class="carrito-acciones-total">
-                                <p>Total:</p>
-                                <p id="Total">$3000</p>
-                            </div>
-                            <button class="carrito-acciones-comprar">Comprar ahora</button>
-                        </div>
+-->                 
+                </div>
+                <div id="carrito-acciones" class="carrito-acciones">
+                    <div class="carrito-acciones-izquierda">
+                        <button class="carrito-acciones-vaciar">VACIAR CARRITO</button>
                     </div>
-                    
+                    <div class="carrito-acciones-derecha">
+                        <div class="carrito-acciones-total">
+                            <p class="total">TOTAL:<span class="total" id="Total">$2950</span></p>
+                        </div>
+                        <button class="carrito-acciones-comprar">COMPRAR AHORA</button>
+                    </div>
                 </div>
                 <p id="carrito-comprado" class="carrito-comprado">Muchas gracias por tu compra. <i class="bi bi-emoji-laughing"></i></p>
             </div>
@@ -69,7 +66,9 @@
                 <i class="bi bi-x"></i>
             </button>
             <header>
-                <h1 class="logo">CarbaShop</h1>
+                <a id="inicio" href="index.html">
+                    <h1 class="logo">CarbaShop</h1>
+                </a>
             </header>
             <nav>
                 <ul class="menu">
